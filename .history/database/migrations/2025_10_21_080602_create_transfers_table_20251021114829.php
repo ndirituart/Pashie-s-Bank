@@ -14,14 +14,12 @@ return new class extends Migration
        
      Schema::create('transfers', function (Blueprint $table) {
                $table->id();
-            $table->foreignId('sender_id')->nullable()->constrained('users');// transfer relationship with users table
-               //->onDelete('nullOnDelete'); removed so that we use softdelet trait
-               $table->foreignId('sender_account_id')->nullable()->constrained('accounts'); //transfer relationship with accounts table
-               $table->foreignId('recipient_account_id')->nullable()->constrained('accounts'); //transfer relationship with accounts table
+               $table->foreignId('sender_id')->nullable()->constrained('users')->onDelete('nullOnDelete'); // transfer relationship with users table
+               $table->foreignId('sender_account_id')->nullable()->constrained('accounts')->onDelete('nullOnDelete'); //transfer relationshi
+               $table->foreignId('recipient_account_id')->nullable()->constrained('accounts')->onDelete('nullOnDelete');
                $table->string('reference')->index()->nullable()->comment('transfers reference index');
                $table->string('status');
                $table->decimal('amount', 16, places: 4);
-               $table->softDeletes();
                $table->timestamps();
 });
         

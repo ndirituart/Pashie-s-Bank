@@ -13,12 +13,7 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->nullable(); //relationship between user and accounts table
-            //->onDelete('cascade') becuase we are using softdelet trait
-            $table->string('account_number')->unique();
-            $table->decimal('balance', 16, 4)->default(0);
             $table->timestamps();
-            $table->softDeletes(); //this is a trait that allows for soft deleting records
         });
     }
 

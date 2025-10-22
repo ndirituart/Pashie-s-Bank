@@ -19,13 +19,13 @@ return new class extends Migration
             $table->foreignId('transfer_id')->nullable()->constrained('transfers');
             $table->decimal('amount', 16, 4);
             $table->decimal('balance', 16, 4);
-            $table->string('category')->default('deposit');
-            $table->boolean('confirmed')->default(false)->nullable(); //status
-            $table->string('description')->nullable(); //withdrawal or deposit description
-            $table->dateTime('date')->nullable();
-            $table->dateTime('meta')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+    $table->string('category')->default('deposit');
+    $table->boolean('confirmed')->default(false)->nullable(); //status
+    $table->string('description')->nullable(); //withdrawal or deposit description
+    $table->dateTime('date')->nullable();
+    $table->dateTime('meta')->nullable();
+    $table->softDeletes();
+    $table->timestamps();
         });
     }
 

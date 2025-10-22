@@ -21,7 +21,7 @@ return new class extends Migration
                $table->string('reference')->index()->nullable()->comment('transfers reference index');
                $table->string('status');
                $table->decimal('amount', 16, places: 4);
-               $table->softDeletes();
+               
                $table->timestamps();
 });
         

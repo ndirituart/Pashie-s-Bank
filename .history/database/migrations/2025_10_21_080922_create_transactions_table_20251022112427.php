@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('category')->default('deposit');
             $table->boolean('confirmed')->default(false)->nullable(); //status
             $table->string('description')->nullable(); //withdrawal or deposit description
-            $table->dateTime('date')->nullable();
-            $table->dateTime('meta')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+    $table->dateTime('date')->nullable();
+    $table->dateTime('meta')->nullable();
+    $table->softDeletes();
+    $table->timestamps();
         });
     }
 

@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('description')->nullable(); //withdrawal or deposit description
             $table->dateTime('date')->nullable();
             $table->dateTime('meta')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+    $table->softDeletes();
+    $table->timestamps();
         });
     }
 
