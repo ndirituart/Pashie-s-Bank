@@ -19,10 +19,10 @@ class Transactions extends Model
         return $this->belongsTo(User::class, 'foreignKey: user_id'); 
     }
 
-    //M:1 of many Transactions to one Account
+    // Define the inverse one-to-many relationship (Transaction belongs to an Account)
     public function account(): BelongsTo
     {
         // Assumes 'account_id' is the foreign key linking to the Account model
-        return $this->belongsTo(Accounts::class, 'foreignKey: account_id');
+        return $this->belongsTo(Account::class, 'foreignKey: account_id');
     }
 }

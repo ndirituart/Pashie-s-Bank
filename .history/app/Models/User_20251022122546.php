@@ -48,23 +48,21 @@ class User extends Authenticatable
     }
 
     // 1:M Relationship where a User has many Transactions
-    public function transactions(): HasMany
-     {
-        return $this->hasMany(Transactions::class);
-    }
+public function transactions(): HasMany
+{
+    return $this->hasMany(Transactions::class);
+}
 
-    // 1: M Relationship where a User has many Transfers (as the sender)
-    public function transfer(): HasMany
-    {
+// 1: M Relationship where a User has many Transfers (as the sender)
+public function transfer(): HasMany
+{
 
-        return $this->hasMany(Transfers::class, 'sender');
-    }
+    return $this->hasMany(Transfers::class, 'sender');
+}
 
-    // 1:1 Relationship where a User has one Account (Main Account)
-    public function account(): HasOne
-    {
-
-        return $this->hasOne(Accounts::class, 'user_id');
-    }
-    
+// 1:1 Relationship where a User has one Account (Main Account)
+public function account(): HasOne
+{
+    return $this->hasOne(Accounts::class, 'user_id');
+}
 }

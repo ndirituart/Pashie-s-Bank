@@ -27,7 +27,7 @@ class Transfers extends Model
         return $this->belongsTo(Accounts::class, 'foreignKey: sender_account_id');
     }
 
-     // 1:M of one Recipeint to each Transfer
+     // 1: of one Recipeint to each Transfer
     public function recepient(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Models\Transactions;
 
 class Accounts extends Model
 {
@@ -16,15 +14,15 @@ class Accounts extends Model
     //protect assignend values
     protected $guarded = [];
 
-    //1:1 relationship of Account to User
+    // Define the inverse of the one-to-many relationship (Account belongs to a User)
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    //1:M relationship of Account to Transactions
+    // Define the one-to-many relationship (Account has many Transactions)
     public function transactions(): HasMany
     {
-        return $this->hasMany(Transactions::class);
+        return $this->hasMany(Transaction::class);
     }
 }

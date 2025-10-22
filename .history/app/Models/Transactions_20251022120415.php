@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transactions extends Model
 {
@@ -13,16 +12,17 @@ class Transactions extends Model
 
     protected $guarded = [];
 
-    // 1:M of one User to many Transactions
+    // Define the inverse one-to-many relationship (Transaction belongs to a User/Owner)
     public function owner(): BelongsTo
     {
+        // Assumes 'user_id' is the foreign key linking to the User model
         return $this->belongsTo(User::class, 'foreignKey: user_id'); 
     }
 
-    //M:1 of many Transactions to one Account
+    // Define the inverse one-to-many relationship (Transaction belongs to an Account)
     public function account(): BelongsTo
     {
         // Assumes 'account_id' is the foreign key linking to the Account model
-        return $this->belongsTo(Accounts::class, 'foreignKey: account_id');
+        return $this->belongsTo(Account::class, 'foreignKey: account_id');
     }
 }

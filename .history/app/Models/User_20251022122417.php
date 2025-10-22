@@ -8,9 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Models\Transactions;
-use App\Models\Transfers;
-use App\Models\Accounts;
+use App\Models\Transaction;
+use App\Models\Transfer;
+use App\Models\Account;
 
 class User extends Authenticatable
 {
@@ -47,24 +47,23 @@ class User extends Authenticatable
         ];
     }
 
-    // 1:M Relationship where a User has many Transactions
-    public function transactions(): HasMany
-     {
-        return $this->hasMany(Transactions::class);
-    }
+    // Relationship where a User has many Transactions
+public function transactions(): HasMany
+{
+    return $this->hasMany(Transaction::class);
+}
 
-    // 1: M Relationship where a User has many Transfers (as the sender)
-    public function transfer(): HasMany
-    {
+// Relationship where a User has many Transfers (as the sender)
+public function transfer(): HasMany
+{
+    // The second argument 'sender' explicitly tells Laravel to look for the 'sender' foreign key in the 'transfers' table.
+    return $this->hasMany(Transfer::class, 'sender');
+}
 
-        return $this->hasMany(Transfers::class, 'sender');
-    }
-
-    // 1:1 Relationship where a User has one Account (Main Account)
-    public function account(): HasOne
-    {
-
-        return $this->hasOne(Accounts::class, 'user_id');
-    }
-    
+// Relationship where a User has one Account (Main Account)
+public function account(): HasOne
+{
+    // The second argument 'user_id' explicitly tells Laravel to look for the 'user_id' foreign key in the 'accounts' table.
+    return $this->hasOne(Account::class, 'user_id');
+}
 }

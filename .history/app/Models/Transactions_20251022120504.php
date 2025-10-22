@@ -23,6 +23,6 @@ class Transactions extends Model
     public function account(): BelongsTo
     {
         // Assumes 'account_id' is the foreign key linking to the Account model
-        return $this->belongsTo(Accounts::class, 'foreignKey: account_id');
+        return $this->belongsTo(Account::class, 'foreignKey: account_id');
     }
 }

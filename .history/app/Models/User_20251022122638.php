@@ -60,11 +60,10 @@ class User extends Authenticatable
         return $this->hasMany(Transfers::class, 'sender');
     }
 
-    // 1:1 Relationship where a User has one Account (Main Account)
-    public function account(): HasOne
-    {
+// 1:1 Relationship where a User has one Account (Main Account)
+public function account(): HasOne
+{
 
-        return $this->hasOne(Accounts::class, 'user_id');
-    }
-    
+    return $this->hasOne(Accounts::class, 'user_id');
+}
 }

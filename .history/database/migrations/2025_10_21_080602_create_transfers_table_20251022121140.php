@@ -23,7 +23,7 @@ return new class extends Migration
                $table->decimal('amount', 16, places: 4);
                $table->softDeletes();
                $table->timestamps();
-});//->onDelete('nullOnDelete'); removed so that we use softdelet trait
+});
         
     }
 
