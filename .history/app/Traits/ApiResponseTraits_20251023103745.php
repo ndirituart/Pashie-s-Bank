@@ -70,8 +70,8 @@ trait ApiResponseTraits
          $result = $this ->parseResponse($data, $statusCode, $headers);
                  return response()->json(
                   $result['content'], 
-                  $result['statusCode'], 
-                  $result['headers']);
+    $result['statusCode'], 
+    $headers);
 
        }
     }

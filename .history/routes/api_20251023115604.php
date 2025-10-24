@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +14,6 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-// Authentication Routes (Publicly Accessible)
-Route::prefix('/auth')->group(function () {
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-});
 
 // Group for routes that require authentication (e.g., Sanctum)
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

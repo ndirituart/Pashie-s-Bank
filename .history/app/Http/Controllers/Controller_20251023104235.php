@@ -10,7 +10,5 @@ use Illuminate\Routing\Controller as BaseController;
  class Controller extends BaseController
 {
     
-    //methods, traits and properties common to all controllers
-
-    use AuthorizesRequests, ValidatesRequests, ApiResponseTraits;
+    //meth
 }

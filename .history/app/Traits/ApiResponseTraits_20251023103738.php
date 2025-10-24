@@ -68,10 +68,10 @@ trait ApiResponseTraits
        public function apiRessponse (array $data = [], int $statusCode = 200, array $headers = [])
        {
          $result = $this ->parseResponse($data, $statusCode, $headers);
-                 return response()->json(
-                  $result['content'], 
-                  $result['statusCode'], 
-                  $result['headers']);
+ return response()->json(
+    $result['content'], 
+    $result['statusCode'], 
+    $headers);
 
        }
     }

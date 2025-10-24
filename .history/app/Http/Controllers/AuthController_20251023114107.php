@@ -52,7 +52,7 @@ class AuthController extends Controller
         // Attempt to find the user by email
         $user = $this->userService->findByEmail($credentials['email'] ?? null);
 
-        if (!$user || !Hash::check($credentials['password'] ?? '', $user->password)) {
+        if (! $user || ! Hash::check($credentials['password'] ?? '', $user->password)) {
             return $this->apiResponse(
                 data: [
                     'success' => false,

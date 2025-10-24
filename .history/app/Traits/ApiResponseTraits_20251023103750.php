@@ -71,7 +71,7 @@ trait ApiResponseTraits
                  return response()->json(
                   $result['content'], 
                   $result['statusCode'], 
-                  $result['headers']);
+                  $headers);
 
        }
     }

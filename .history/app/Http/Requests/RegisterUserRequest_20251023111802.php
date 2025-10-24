@@ -24,13 +24,13 @@ class RegisterUserRequest extends FormRequest
         return [
             // variables and constraints from our user registration form
             'name' => ['required', 'string', 'min:2', 'max:200'],
-
+            
             // REMOVED SPACES: 'email ' => ['required', 'email ', 'max:200 ',  'unique:users '], 
-            'email' => ['required', 'email', 'max:200', 'unique:users'],
-
+            'email' => ['required', 'email', 'max:200', 'unique:users'], 
+            
             // REMOVED SPACES: 'password' => ['required ', ' string', 'min:8 ', 'max:55 '],
             'password' => ['required', 'string', 'min:8', 'max:55', 'confirmed'], // Added 'confirmed' for password_confirmation check
-
+            
             // REMOVED SPACES: 'phone_number' => [' required', 'string ', 'min:10 ', 'max:14 ','unique:users' ]
             'phone_number' => ['required', 'string', 'min:10', 'max:14', 'unique:users'],
 
